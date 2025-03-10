@@ -4,6 +4,17 @@
       {{ section.settings.title }}
     </h2>
   </div>
+  <div class="featured-products__cards page-width">
+    <ul class="grid product-grid contains-card contains-card--product grid--2-col-desktop grid--1-col-tablet-down">
+      {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+        <li class="grid__item">
+          {% render 'featured-card',
+            product: product,
+          %}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
 </div>
 
 {% schema %}

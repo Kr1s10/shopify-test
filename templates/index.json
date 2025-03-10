@@ -76,13 +76,18 @@
         "padding_bottom": 36
       }
     },
-    // "featured_products" :{
-    //   "type": "featured-products-custom",
-    // },
+    "featured_products_custom_zjUtWk": {
+      "type": "featured-products-custom",
+      "settings": {
+        "collection": "cosmetics",
+        "products_to_show": 4,
+        "title": "Featured Products Test"
+      }
+    }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    // "featured_products"
+    "featured_products_custom_zjUtWk"
   ]
 }
