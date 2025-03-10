@@ -1,0 +1,45 @@
+<div class="featured-products">
+  <div class="featured-products__title page-width">
+    <h2 class="title">
+      {{ section.settings.title }}
+    </h2>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured product custom",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 4,
+      "label": "Product count"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured Products",
+      "label": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured product custom"
+    }
+  ]
+}
+{% endschema %}
