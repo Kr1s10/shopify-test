@@ -7,12 +7,12 @@
 {% endcomment %}
 
 {% assign product_form_id = 'quick-add-' | append: section.id | append: product.id %}
-{%- assign price = product.selected_or_first_available_variant.price | money_with_currency
+{%- assign price = product.selected_or_first_available_variant.price | money_without_trailing_zeros
 -%}
 
-<div class="featured-card-wrapper">
+<div class="featured-card">
   {%- if product.featured_media -%}
-    <div class="featured-card">
+    <div class="featured-card__image">
       <img
         srcset="
           {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -26,7 +26,6 @@
         src="{{ product.featured_media | image_url: width: 533 }}"
         sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
         alt="{{ product.featured_media.alt | escape }}"
-        class="motion-reduce"
         {% unless lazy_load == false %}
           loading="lazy"
         {% endunless %}
@@ -65,7 +64,7 @@
             id="{{ product_form_id }}-submit"
             type="submit"
             name="add"
-            class="quick-add__submit button button--full-width button--secondary"
+            class="quick-add__submit featured-card__button button"
             aria-haspopup="dialog"
             aria-labelledby="{{ product_form_id }}-submit title-{{ section.id }}-{{ product.id }}"
             aria-live="polite"

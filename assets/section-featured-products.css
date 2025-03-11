@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+
+.featured-products {
+  --font-heading-family: "Gothic A1", sans-serif;
+  --font-body-family: "Gothic A1", sans-serif;
+  --text-color: #656874;
+  --color-button: 70, 75, 144;
+  --grid-desktop-horizontal-spacing: 4rem;
+  --grid-desktop-vertical-spacing: 12rem;
+  --grid-mobile-vertical-spacing: 5rem;
+  --buttons-radius: 40px;
+  --buttons-radius-outset: 40px;
+}
+
+.featured-products {
+  background: #F5F5F5;
+  padding: 4rem 0 6rem;
+}
+
+.featured-products .page-width {
+  padding: 0;
+}
+
+.featured-products__title .title,
+.featured-products__cards .grid__item {
+  text-align: center;
+}
+
+.featured-products .full-unstyled-link,
+.featured-products__title .title {
+  color: var(--text-color);
+}
+
+.featured-products__title .title {
+  font-weight: 900;
+  font-size: 2.6rem;
+  line-height: 3.6rem;
+}
+
+.featured-card__heading {
+  margin: 3rem 0 1rem 0;
+  line-height: 4.2rem;
+}
+
+.featured-card__content {
+  padding: 0 1.5rem;
+}
+
+.featured-products .full-unstyled-link {
+  font-weight: 700;
+  font-size: 2.2rem;
+  display: inline;
+  position: relative;
+}
+
+.featured-products .full-unstyled-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--text-color);
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-medium);
+}
+
+.featured-card__image {
+  overflow: hidden;
+}
+
+.featured-card__image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--duration-medium);
+}
+
+.featured-card__button {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  padding: 1.8rem 8rem;
+}
+
+@media (hover: hover) {
+  .featured-products .full-unstyled-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .featured-card:hover .featured-card__image img {
+    transform: scale(1.03);
+  }
+}
+
+
+@media only screen and (min-width: 750px) {
+  .featured-products {
+    padding: 8rem 0 14rem;
+  }
+
+  .featured-products .page-width {
+    padding: 0 5rem;
+  }
+
+  .featured-products__title .title {
+    font-size: 4.2rem;
+    margin-bottom: 6rem;
+  }
+}
