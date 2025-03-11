@@ -20,6 +20,14 @@ To access the admin panel, you need to publish a topic in your store.
 shopify theme push --store {store-name}
 ```
 
+### Implemented functionality:
+  * ability to change block title in admin panel
+  * limit on the number of products in a block
+  * Adding an item to the cart refreshes and shows the pop-up cart of the Dawn theme and does not reload the page
+  * Adding a product to the cart updates the list of products in the section (since the added product is no longer displayed in the section)
+
+> There is a more efficient approach to implementing shopping cart functionality with the addition of a custom form object and a custom shopping cart update module, but this would take more time than using existing components, so the quickest solution was chosen with a focus on reusing existing functionality in the theme.
+
 ### Screenshots:
   * section on site
   ![alt text](image.png)
