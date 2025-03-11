@@ -1,16 +1,22 @@
-document.addEventListener('cart:change', function(event) {
-  console.log('ajax:success')
-  
+document.addEventListener('DOMContentLoaded', function () {
+  subscribe(PUB_SUB_EVENTS.cartUpdate, async () => {
+    const featuredSections = document.querySelectorAll('.featured-products');
+
+    for (const section of featuredSections) {
+      const sectionId = feature.getAttribute('data-section-id');
+      
+      try {
+        const response = await fetch(`/?sections=${sectionId}`);
+
+        if (!response.ok) {
+          throw new Error(`HTTP Error ${response.status}: Failed to fetch section ${sectionId}`);
+        }
+
+        const data = await response.json();
+        section.innerHTML = data[sectionId];
+      } catch (error) {
+        console.error(`Error updating section ${sectionId}:`, error);
+      }
+    }
+  });
 });
-// if (event.target.matches('[action="/cart/add"]')) {
-  //   const sections = document.querySelectorAll('.featured-product[data-section-id]');
-  //   console.log(sections)
-  //   // fetch('/?sections=products-section-handle')
-  //   //   .then(response => response.json())
-  //   //   .then(data => {
-  //   //     const productsSection = document.querySelector('[data-section-id="products-section-handle"]');
-  //   //     if (productsSection) {
-  //   //       productsSection.innerHTML = data['products-section-handle'];
-  //   //     }
-  //   //   });
-  // }
