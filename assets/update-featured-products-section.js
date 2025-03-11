@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const featuredSections = document.querySelectorAll('.featured-products');
 
     for (const section of featuredSections) {
-      const sectionId = feature.getAttribute('data-section-id');
+      const sectionId = section.getAttribute('data-section-id');
       
       try {
         const response = await fetch(`/?sections=${sectionId}`);
